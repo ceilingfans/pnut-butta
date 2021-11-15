@@ -18,7 +18,6 @@ set(HEADER_FILES
         include/Game.hpp
         include/Util.hpp)
 set(SOURCE_FILES
-        src/GameOptions.cpp
         src/Game.cpp
         src/Util.cpp
         src/main.cpp)
