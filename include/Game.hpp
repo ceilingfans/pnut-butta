@@ -12,8 +12,8 @@ public:
 
     std::vector<std::string> getValidOptions();
     void addToGameString(const std::string &p_string);
-    void run();
-    void runComputer();
+    static void run();
+    static void runComputer();
 
 private:
     std::string gameString;
