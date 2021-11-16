@@ -314,27 +314,6 @@ void flag_print_options(FILE *stream)
         fprintf(stream, "    -%s\n", flag->name);
         fprintf(stream, "        %s\n", flag->desc);
         static_assert(COUNT_FLAG_TYPES == 4, "Exhaustive flag type defaults printing");
-        switch (c->flags[i].type) {
-        case FLAG_BOOL:
-            if (flag->def.as_bool) {
-                fprintf(stream, "        Default: %s\n", flag->def.as_bool ? "true" : "false");
-            }
-            break;
-        case FLAG_UINT64:
-            fprintf(stream, "        Default: %" PRIu64 "\n", flag->def.as_uint64);
-            break;
-        case FLAG_SIZE:
-            fprintf(stream, "        Default: %zu\n", flag->def.as_size);
-            break;
-        case FLAG_STR:
-            if (flag->def.as_str) {
-                fprintf(stream, "        Default: %s\n", flag->def.as_str);
-            }
-            break;
-        default:
-            assert(0 && "unreachable");
-            exit(69);
-        }
     }
 }
 
@@ -389,3 +368,5 @@ void flag_print_error(FILE *stream)
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
+
+// Tue 16 Nov 2021: Modify: remove default value printing
