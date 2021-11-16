@@ -132,4 +132,6 @@ std::vector<std::string> splitText(std::string p_string, const std::string &p_de
     result.push_back(p_string.substr(0, pos));
     p_string.erase(0, pos + p_delimiter.length());
   }
+
+  return result;
 }
