@@ -14,7 +14,7 @@ struct GameOptions
 
 bool isValidOption(const GameOptions &opt)
 {
-  return opt.playerCount != 0 || opt.substringLength != 0 || opt.options.empty();
+  return opt.playerCount != 0 && opt.substringLength != 0 && opt.options.empty();
 }
 
 #endif /* PNUTBUTTA_GAMEOPTIONS_H */
