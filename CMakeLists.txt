@@ -11,17 +11,21 @@ message( STATUS "CMAKE_FINDCMAKE: " ${CMAKE_SOURCE_DIR}/CMAKE )
 
 project(pnut-butta)
 
+set(COMPILE_FLAGS "-std=c++14 -Wall -Wextra -pedantic")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(HEADER_FILES
         thirdparty/flag.h
         include/GameOptions.hpp
         include/Game.hpp
-        include/Util.hpp)
+        include/Util.hpp
+        include/Colours.hpp)
 set(SOURCE_FILES
+        src/GameOptions.cpp
         src/Game.cpp
         src/Util.cpp
         src/main.cpp)
 
+add_definitions(${COMPILE_FLAGS})
 add_executable(${PROJECT_NAME}
         ${HEADER_FILES}
         ${SOURCE_FILES})

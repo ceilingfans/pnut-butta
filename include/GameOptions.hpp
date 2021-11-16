@@ -12,9 +12,6 @@ struct GameOptions
     std::vector<std::string> options {};
 };
 
-bool isValidOption(const GameOptions &opt)
-{
-  return opt.playerCount != 0 && opt.substringLength != 0 && opt.options.empty();
-}
+bool isValidOption(const GameOptions &opt);
 
 #endif /* PNUTBUTTA_GAMEOPTIONS_H */
