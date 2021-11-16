@@ -36,5 +36,6 @@ void clearScreen();
 std::string joinString(const std::vector<std::string> &p_strings, const std::string& p_delimiter);
 bool contains(const std::string &p_string, const std::string &p_search);
 bool isNumber(const std::string &p_string);
+std::vector<std::string> splitText(std::string p_string, const std::string &p_delimiter);
 
 #endif /* PNUTBUTTA_UTIL_H */

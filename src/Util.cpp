@@ -122,3 +122,14 @@ bool isNumber(const std::string &p_string)
   while(it != p_string.end() && std::isdigit(*it)) ++it;
   return !p_string.empty() && it == p_string.end();
 }
+
+std::vector<std::string> splitText(std::string p_string, const std::string &p_delimiter)
+{
+  std::vector<std::string> result;
+  size_t pos = 0;
+  while ((pos = p_string.find(p_delimiter)) != std::string::npos)
+  {
+    result.push_back(p_string.substr(0, pos));
+    p_string.erase(0, pos + p_delimiter.length());
+  }
+}
