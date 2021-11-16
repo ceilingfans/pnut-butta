@@ -10,7 +10,8 @@ class Game
 public:
     explicit Game(GameOptions *p_opt);
 
-    std::vector<std::string> getValidOptions(const std::string &p_s);
+    std::vector<std::string> getValidOptions();
+    void addToGameString(const std::string &p_string);
     void run();
     void runComputer();
 
