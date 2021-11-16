@@ -50,7 +50,7 @@ namespace Printer
 
   void loss(const std::string &p_loser, LossCodes p_code)
   {
-    std::cout << "pnut-butta: " << BOLD(FRED("loser ")) << p_loser << std::endl;
+    std::cout << "pnut-butta: " << BOLD(FRED("loser ")) << p_loser;
 
     switch (p_code)
     {
