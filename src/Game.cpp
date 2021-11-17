@@ -30,7 +30,7 @@ Game::Game(GameOptions *p_opt)
 
     std::string opt;
     Printer::prompt("Enter a character or 'stop'");
-    std::cin >> opt;
+    std::getline(std::cin, opt);
 
     /* VALIDATION */
     if (std::find(p_opt->options.begin(), p_opt->options.end(), opt) != p_opt->options.end())
@@ -64,7 +64,7 @@ Game::Game(GameOptions *p_opt)
   {
     std::string opt;
     Printer::prompt("Enter the substring length");
-    std::cin >> opt;
+    std::getline(std::cin, opt);
 
     /* VALIDATION */
     if (!isNumber(opt))
@@ -89,7 +89,7 @@ Game::Game(GameOptions *p_opt)
   {
     std::string opt;
     Printer::prompt("Enter the player count");
-    std::cin >> opt;
+    std::getline(std::cin, opt);
 
     /* VALIDATION */
     if (!isNumber(opt))
@@ -114,7 +114,7 @@ Game::Game(GameOptions *p_opt)
   {
     std::string opt;
     Printer::prompt("DO you want assistance? ('y'/'n')");
-    std::cin >> opt;
+    std::getline(std::cin, opt);
 
     /* VALIDATION */
     if (opt == "y")
@@ -208,16 +208,16 @@ void Game::run()
                 "\x1B[1m\x1B[32m" + gameString + "\x1B[0m"
               ) << " | Player \x1B[4m" << i << RST << "'s turn" << std::endl;
 
+
       if (gameOptions.isAssist)
       {
         Printer::options(validOptions);
       }
-
       do
       {
-        std::cin >> opt;
+        std::getline(std::cin, opt);
 
-        if (!(std::find(validOptions.begin(), validOptions.end(), opt) != validOptions.end()))
+        if (std::find(validOptions.begin(), validOptions.end(), opt) == validOptions.end())
         {
           if (gameOptions.isAssist)
           {
@@ -226,7 +226,7 @@ void Game::run()
           }
           else
           {
-            if (!(std::find(gameOptions.options.begin(), gameOptions.options.end(), opt) != gameOptions.options.end()))
+            if (std::find(gameOptions.options.begin(), gameOptions.options.end(), opt) == gameOptions.options.end())
             {
 
               Printer::error(Printer::ErrorCodes::INVALID_OPTION);
@@ -243,7 +243,7 @@ void Game::run()
             return;
           }
         }
-      } while (opt.empty() || !(std::find(validOptions.begin(), validOptions.end(), opt) != validOptions.end()));
+      } while (opt.empty() || std::find(validOptions.begin(), validOptions.end(), opt) == validOptions.end());
 
       addToGameString(opt);
     }
@@ -258,7 +258,7 @@ void Game::runComputer()
   {
     std::string opt;
     Printer::prompt("Do you want to go first? ('y'/'n')");
-    std::cin >> opt;
+    std::getline(std::cin, opt);
 
     if (opt == "y")
     {
@@ -305,22 +305,19 @@ void Game::runComputer()
         }
         do
         {
-          std::cin >> opt;
+          std::getline(std::cin, opt);
           
-          if (!(std::find(validOptions.begin(), validOptions.end(), opt) != validOptions.end()))
+          if (std::find(validOptions.begin(), validOptions.end(), opt) == validOptions.end())
           {
             if (gameOptions.isAssist)
             {
-              std::cout << opt << std::endl;
-              std::cout << "a" << std::endl;
               Printer::error(Printer::ErrorCodes::INVALID_OPTION);
               opt.clear();
             }
             else
             {
-              if (!(std::find(gameOptions.options.begin(), gameOptions.options.end(), opt) != gameOptions.options.end()))
+              if (std::find(gameOptions.options.begin(), gameOptions.options.end(), opt) == gameOptions.options.end())
               {
-                std::cout << "b" << std::endl;
                 Printer::error(Printer::ErrorCodes::INVALID_OPTION);
                 continue;
               }
