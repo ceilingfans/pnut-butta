@@ -1,10 +1,36 @@
 # pnut-butta
 ### Pnut-Butta is a game revolved around matching substrings
 
+<details>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li>
+            <a href="#about-the-project">About the Project</a>
+            <ul>
+                <li><a href="built-with">Built With</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#getting-started">Getting Started</a>
+            <ul>
+                <li><a href="prerequisites">Prerequisites</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#building">Building</a>
+            <ul>
+                <li><a href="#build-script">Build Script</a></li>
+                <li><a href=#"manual-build">Manual Build</a></li>
+            </ul>
+        </li>
+        <li><a href="#running-the-game">Running the Game</a></li>
+    </ol>
+</details>
+
 ## About the Project
 ![Game](https://github.com/ceilingfans/pnut-butta/blob/main/img/game.png?raw=true)
 
-## Built With 
+### Built With 
 * [flag.h](https://github.com/tsoding/flag.h)
 
 ## Getting Started
