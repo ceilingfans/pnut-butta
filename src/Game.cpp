@@ -113,7 +113,7 @@ Game::Game(GameOptions *p_opt)
   while (true)
   {
     std::string opt;
-    Printer::prompt("DO you want assistance? ('y'/'n')");
+    Printer::prompt("Do you want assistance? ('y'/'n')");
     std::getline(std::cin, opt);
 
     /* VALIDATION */
