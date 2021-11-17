@@ -1,6 +1,3 @@
-# pnut-butta
-### Pnut-Butta is a game revolved around matching substrings
-
 <details>
     <summary>Table of Contents</summary>
     <ol>
@@ -29,6 +26,7 @@
 
 ## About the Project
 ![Game](https://github.com/ceilingfans/pnut-butta/blob/main/img/game.png?raw=true)
+Pnut-Butta is a game revolved around matching substrings
 
 ### Built With 
 * [flag.h](https://github.com/tsoding/flag.h)
