@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.13.1)
 
+project(pnut-butta)
+
 message("")
 message( STATUS "CMAKE_BINARY_DIR: " ${CMAKE_BINARY_DIR} )
 message( STATUS "CMAKE_SOURCE_DIR: " ${CMAKE_SOURCE_DIR} )
 message( STATUS "CMAKE_COMMAND: " ${CMAKE_COMMAND} )
 message( STATUS "CMAKE_VERSION: " ${CMAKE_VERSION} )
-message( STATUS "CMAKE_C_COMPILER: " ${CMAKE_CXX_COMPILER} )
+message( STATUS "CMAKE_CXX_COMPILER: " ${CMAKE_CXX_COMPILER} )
 message( STATUS "CMAKE_PROJECT_NAME: " ${CMAKE_PROJECT_NAME} )
 
-project(pnut-butta)
-
 set(COMPILE_FLAGS "-std=c++14 -Wall -Wextra -pedantic")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY CMAKE_CXX_COMPILER${CMAKE_BINARY_DIR}/bin)
 set(HEADER_FILES
         thirdparty/flag.h
         include/GameOptions.hpp
