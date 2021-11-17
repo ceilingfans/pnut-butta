@@ -7,7 +7,7 @@
         <li>
             <a href="#about-the-project">About the Project</a>
             <ul>
-                <li><a href="built-with">Built With</a></li>
+                <li><a href="#built-with">Built With</a></li>
             </ul>
         </li>
         <li>
