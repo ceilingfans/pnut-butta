@@ -57,7 +57,7 @@ sh ./build.sh
 ```shell
 cmake .
 ```
-You may need to specify the generator for cmake with the `-G` flag
+You may need to specify the generator for cmake with the `-G` flag, see [this](https://stackoverflow.com/a/35935066/15283724) for more information
 
 * Make
 ```shell
