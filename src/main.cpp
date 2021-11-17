@@ -30,7 +30,14 @@ int main(int argc, char** argv)
                                                       "\tE.g. '-substring 4'");
   char* *options = flag_str("options", "", "Sets the options of the game (seperated by commas)\n"
                                            "\tE.g. '-options 0,1,2'");
-  flag_parse(argc, argv);
+
+  bool b_parsed = flag_parse(argc, argv);
+  if (!b_parsed)
+  {
+    flag_print_error(stdout);
+    usage(stdout);
+    return EXIT_FAILURE;
+  }
 
   if (*help)
   {
@@ -46,55 +53,58 @@ int main(int argc, char** argv)
 
   GameOptions opt;
 
-  std::string pc(*playerCount);
-  std::string sl(*substringLength);
-  std::string op(*options);
+  if (argc != 1)
+  {
+    std::string pc(*playerCount);
+    std::string sl(*substringLength);
+    std::string op(*options);
 
-  if (!isNumber(pc))
-  {
-    Printer::error(Printer::ErrorCodes::NOT_A_NUMBER);
-    usage(stdout);
-    return EXIT_FAILURE;
-  }
-  else
-  {
-    opt.playerCount = std::stoi(pc);
-  }
-
-  if (!isNumber(sl))
-  {
-    Printer::error(Printer::ErrorCodes::NOT_A_NUMBER);
-    usage(stdout);
-    return EXIT_FAILURE;
-  }
-  else
-  {
-    opt.substringLength = std::stoi(sl);
-  }
-
-  if (op.empty())
-  {
-    Printer::error(Printer::ErrorCodes::INSUFFICIENT_OPTIONS);
-    usage(stdout);
-    return EXIT_FAILURE;
-  }
-  else
-  {
-    bool isValid = true;
-    for (char i : op)
+    if (!isNumber(pc))
     {
-      isValid = isdigit(i) || i == ',';
-    }
-
-    if (!isValid)
-    {
-      Printer::error(Printer::ErrorCodes::INVALID_OPTION);
+      Printer::error(Printer::ErrorCodes::NOT_A_NUMBER);
       usage(stdout);
       return EXIT_FAILURE;
     }
     else
     {
-      opt.options = splitText(op, ",");
+      opt.playerCount = std::stoi(pc);
+    }
+
+    if (!isNumber(sl))
+    {
+      Printer::error(Printer::ErrorCodes::NOT_A_NUMBER);
+      usage(stdout);
+      return EXIT_FAILURE;
+    }
+    else
+    {
+      opt.substringLength = std::stoi(sl);
+    }
+
+    if (op.empty())
+    {
+      Printer::error(Printer::ErrorCodes::INSUFFICIENT_OPTIONS);
+      usage(stdout);
+      return EXIT_FAILURE;
+    }
+    else
+    {
+      bool isValid = true;
+      for (char i : op)
+      {
+        isValid = isdigit(i) || i == ',';
+      }
+
+      if (!isValid)
+      {
+        Printer::error(Printer::ErrorCodes::INVALID_OPTION);
+        usage(stdout);
+        return EXIT_FAILURE;
+      }
+      else
+      {
+        opt.options = splitText(op, ",");
+      }
     }
   }
 
