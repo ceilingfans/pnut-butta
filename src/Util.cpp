@@ -38,7 +38,7 @@ namespace Printer
         std::cout << "invalid option" << std::endl;
         break;
 
-      case ErrorCodes::NAN:
+      case ErrorCodes::NOT_A_NUMBER:
         std::cout << "not a number" << std::endl;
         break;
 
@@ -81,6 +81,13 @@ namespace Printer
   void options(const std::vector<std::string> &p_options)
   {
     std::cout << "pnut-butta: " << BOLD(FGRN("options: ")) << joinString(p_options, " ") << std::endl;
+  }
+
+  void arrow(const size_t &p_spaces, const int &p_arr, const std::string &p_string)
+  {
+    for (size_t i = 0; i < p_spaces; ++i) std::cout << " ";
+    for (int i = 0; i < p_arr; ++i) std::cout << BOLD(FRED("^"));
+    std::cout << " " << p_string << std::endl;
   }
 } /* Printer */
 
@@ -126,12 +133,14 @@ bool isNumber(const std::string &p_string)
 std::vector<std::string> splitText(std::string p_string, const std::string &p_delimiter)
 {
   std::vector<std::string> result;
-  size_t pos = 0;
+  size_t pos;
+
   while ((pos = p_string.find(p_delimiter)) != std::string::npos)
   {
     result.push_back(p_string.substr(0, pos));
     p_string.erase(0, pos + p_delimiter.length());
   }
+  result.push_back(p_string);
 
   return result;
 }

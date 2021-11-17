@@ -13,7 +13,7 @@ namespace Printer
       INSUFFICIENT_OPTIONS,
       INSUFFICIENT_PLAYERS,
       INVALID_OPTION,
-      NAN,
+      NOT_A_NUMBER,
       LENGTH_SHORT,
     };
 
@@ -30,6 +30,7 @@ namespace Printer
     void win(const std::string &p_winner);
     void prompt(const std::string &p_prompt);
     void options(const std::vector<std::string> &p_options);
+    void arrow(const size_t &p_spaces, const int &p_arr, const std::string &p_string);
 } /* Printer */
 
 void clearScreen();
