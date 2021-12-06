@@ -66,4 +66,4 @@ make
 
 ## Running the game
 Once you have built the project, you will see a new `bin` folder
-In this folder will be the executable for the game
+In the `bin` folder there will be the executable file.
