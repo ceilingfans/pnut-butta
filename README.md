@@ -1,3 +1,6 @@
+# NOTE
+This has been replaced by [`pb-rs`](https://github.com/ceilingfans/pb-rs)
+
 <details>
     <summary>Table of Contents</summary>
     <ol>
